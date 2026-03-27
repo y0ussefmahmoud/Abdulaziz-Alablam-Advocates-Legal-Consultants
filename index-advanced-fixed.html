@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>عبدالعزيز الأبلم للمحاماة والاستشارات القانونية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FBD070",
+                        "background": "#2F3E46",
+                        "surface": "#37474F",
+                        "on-surface": "#FFFFFF"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                    },
+                },
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #2F3E46;
+        }
+        h1, h2, h3 {
+            font-family: 'Noto Serif', serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+    <div id="app"></div>
+    
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        
+        function App() {
+            const [language, setLanguage] = useState('ar');
+
+            const toggleLanguage = () => {
+                const newLang = language === 'ar' ? 'en' : 'ar';
+                setLanguage(newLang);
+                document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
+                document.documentElement.lang = newLang;
+            };
+
+            const logoUrl = "https://lh3.googleusercontent.com/aida/ADBb0ug2d98s1M2O9BNNHaB4HFQxsb0Bf45yNcS7CJFQmyCmp3hX2lYaQejvENxNFv2ne7xeHZtompXveeH0d2PoaB3MoAk-0FVibMT8W92QMiK-yHmhIozdJ8VC7kSZp4kqOUQiv0NDbvKb1vC02wJschycLZB9Z5QOvUlmEUng1xu79R561GfbAav2el5BHRA1n0fJzSZYCRNDzrZjbMaFGuryEiad0NNc69QiL_wqGPRjstW2Zmbyc_TZZAvoUGxXRHviMHtikVzTyw";
+
+            const content = {
+                ar: {
+                    nav: {
+                        home: 'الرئيسية',
+                        services: 'خدماتنا',
+                        contact: 'اتصل بنا'
+                    },
+                    hero: {
+                        title: 'عبدالعزيز الأبلم للمحاماة',
+                        subtitle: 'خبرة تتجاوز 20 عاماً في القانون الجنائي',
+                        description: 'نقدم دفاعاً قانونياً متخصصاً في كافة القضايا الجنائية بقيادة محامي ذوي خبرة عالية.',
+                        cta: 'طلب استشارة'
+                    },
+                    services: {
+                        title: 'خدماتنا القانونية',
+                        items: [
+                            'الدفاع الجنائي',
+                            'الاستشارات القانونية',
+                            'قضايا المخدرات',
+                            'الطعن في الأحكام'
+                        ]
+                    },
+                    contact: {
+                        title: 'اتصل بنا',
+                        phone: '042845200',
+                        email: 'info@alablam.org',
+                        location: 'دبي، بورسعيد، بناية العويس، مكتب 506'
+                    }
+                },
+                en: {
+                    nav: {
+                        home: 'HOME',
+                        services: 'SERVICES',
+                        contact: 'CONTACT'
+                    },
+                    hero: {
+                        title: 'Abdulaziz Al-Ablam Law Firm',
+                        subtitle: 'Over 20 years of criminal law expertise',
+                        description: 'We provide specialized legal defense in all criminal cases led by highly experienced attorneys.',
+                        cta: 'Request Consultation'
+                    },
+                    services: {
+                        title: 'Our Legal Services',
+                        items: [
+                            'Criminal Defense',
+                            'Legal Consultations',
+                            'Drug Cases',
+                            'Appeals & Challenges'
+                        ]
+                    },
+                    contact: {
+                        title: 'Contact Us',
+                        phone: '04 284 5200',
+                        email: 'info@alablam.org',
+                        location: 'Deira, Port Saeed, Al Owais bldg., Office 506'
+                    }
+                }
+            };
+
+            const t = content[language];
+
+            return React.createElement('div', {
+                className: 'min-h-screen bg-background text-white'
+            }, [
+                // Navigation
+                React.createElement('nav', {
+                    key: 'nav',
+                    className: 'fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-white/10'
+                }, [
+                    React.createElement('div', {
+                        key: 'nav-content',
+                        className: 'flex justify-between items-center max-w-7xl mx-auto px-6 h-20'
+                    }, [
+                        React.createElement('div', {
+                            key: 'logo-section',
+                            className: 'flex items-center gap-4'
+                        }, [
+                            React.createElement('img', {
+                                key: 'logo',
+                                alt: 'Logo',
+                                className: 'h-12 w-auto object-contain',
+                                src: logoUrl
+                            }),
+                            React.createElement('div', {
+                                key: 'logo-text',
+                                className: 'hidden sm:block text-lg font-bold text-white'
+                            }, language === 'ar' ? 'عبدالعزيز الأبلم' : 'Abdulaziz Al-Ablam')
+                        ]),
+                        
+                        React.createElement('div', {
+                            key: 'nav-links',
+                            className: 'hidden md:flex gap-8 items-center'
+                        }, [
+                            React.createElement('a', {
+                                key: 'home',
+                                href: '#home',
+                                className: 'text-primary font-semibold'
+                            }, t.nav.home),
+                            React.createElement('a', {
+                                key: 'services',
+                                href: '#services',
+                                className: 'text-white/80 hover:text-primary'
+                            }, t.nav.services),
+                            React.createElement('a', {
+                                key: 'contact',
+                                href: '#contact',
+                                className: 'text-white/80 hover:text-primary'
+                            }, t.nav.contact)
+                        ]),
+
+                        React.createElement('button', {
+                            key: 'lang-switch',
+                            onClick: toggleLanguage,
+                            className: 'flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/30 text-primary hover:bg-primary hover:text-background transition-all'
+                        }, [
+                            React.createElement('span', { key: 'icon', className: 'material-symbols-outlined text-sm' }, 'language'),
+                            React.createElement('span', { key: 'text', className: 'text-xs font-bold' }, 'AR/EN')
+                        ])
+                    ])
+                ]),
+
+                // Hero Section
+                React.createElement('section', {
+                    key: 'hero',
+                    id: 'home',
+                    className: 'relative min-h-screen flex items-center pt-20'
+                }, [
+                    React.createElement('div', {
+                        key: 'hero-content',
+                        className: 'max-w-7xl mx-auto px-6'
+                    }, [
+                        React.createElement('div', {
+                            key: 'hero-text',
+                            className: 'max-w-3xl space-y-8'
+                        }, [
+                            React.createElement('h1', {
+                                key: 'title',
+                                className: 'text-5xl lg:text-7xl font-bold leading-tight'
+                            }, t.hero.title),
+                            
+                            React.createElement('p', {
+                                key: 'subtitle',
+                                className: 'text-2xl text-primary font-semibold'
+                            }, t.hero.subtitle),
+                            
+                            React.createElement('p', {
+                                key: 'description',
+                                className: 'text-lg text-white/80 leading-relaxed'
+                            }, t.hero.description),
+                            
+                            React.createElement('a', {
+                                key: 'cta',
+                                href: '#contact',
+                                className: 'inline-block px-8 py-4 bg-primary text-background font-bold rounded hover:brightness-110 transition-all'
+                            }, t.hero.cta)
+                        ])
+                    ])
+                ]),
+
+                // Services Section
+                React.createElement('section', {
+                    key: 'services',
+                    id: 'services',
+                    className: 'py-24 bg-surface'
+                }, [
+                    React.createElement('div', {
+                        key: 'services-content',
+                        className: 'max-w-7xl mx-auto px-6'
+                    }, [
+                        React.createElement('h2', {
+                            key: 'services-title',
+                            className: 'text-4xl font-bold text-primary text-center mb-12'
+                        }, t.services.title),
+                        
+                        React.createElement('div', {
+                            key: 'services-grid',
+                            className: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'
+                        }, t.services.items.map((service, index) =>
+                            React.createElement('div', {
+                                key: `service-${index}`,
+                                className: 'p-6 bg-background border border-primary/20 text-center'
+                            }, [
+                                React.createElement('span', {
+                                    key: `icon-${index}`,
+                                    className: 'material-symbols-outlined text-primary text-3xl mb-4'
+                                }, 'gavel'),
+                                React.createElement('p', {
+                                    key: `text-${index}`,
+                                    className: 'font-bold text-white'
+                                }, service)
+                            ])
+                        ))
+                    ])
+                ]),
+
+                // Contact Section
+                React.createElement('section', {
+                    key: 'contact',
+                    id: 'contact',
+                    className: 'py-24 bg-background'
+                }, [
+                    React.createElement('div', {
+                        key: 'contact-content',
+                        className: 'max-w-7xl mx-auto px-6 text-center'
+                    }, [
+                        React.createElement('h2', {
+                            key: 'contact-title',
+                            className: 'text-4xl font-bold text-primary mb-12'
+                        }, t.contact.title),
+                        
+                        React.createElement('div', {
+                            key: 'contact-info',
+                            className: 'grid grid-cols-1 md:grid-cols-3 gap-8'
+                        }, [
+                            {
+                                icon: 'call',
+                                info: t.contact.phone,
+                                label: language === 'ar' ? 'الهاتف' : 'Phone'
+                            },
+                            {
+                                icon: 'mail',
+                                info: t.contact.email,
+                                label: language === 'ar' ? 'البريد' : 'Email'
+                            },
+                            {
+                                icon: 'location_on',
+                                info: t.contact.location,
+                                label: language === 'ar' ? 'الموقع' : 'Location'
+                            }
+                        ].map((item, index) =>
+                            React.createElement('div', {
+                                key: `contact-item-${index}`,
+                                className: 'text-center'
+                            }, [
+                                React.createElement('div', {
+                                    key: `icon-${index}`,
+                                    className: 'text-4xl text-primary mb-4'
+                                }, React.createElement('span', { className: 'material-symbols-outlined' }, item.icon)),
+                                React.createElement('h3', {
+                                    key: `label-${index}`,
+                                    className: 'font-bold text-white mb-2'
+                                }, item.label),
+                                React.createElement('p', {
+                                    key: `info-${index}`,
+                                    className: 'text-white/80'
+                                }, item.info)
+                            ])
+                        ))
+                    ])
+                ]),
+
+                // Footer
+                React.createElement('footer', {
+                    key: 'footer',
+                    className: 'bg-surface border-t border-white/10 py-12'
+                }, [
+                    React.createElement('div', {
+                        key: 'footer-content',
+                        className: 'max-w-7xl mx-auto px-6 text-center'
+                    }, [
+                        React.createElement('img', {
+                            key: 'footer-logo',
+                            alt: 'Logo',
+                            className: 'h-12 w-auto mb-6',
+                            src: logoUrl
+                        }),
+                        React.createElement('p', {
+                            key: 'footer-text',
+                            className: 'text-white/60 text-sm'
+                        }, '© 2024 Abdulaziz Al-Ablam Lawyers & Legal Consultants. All Rights Reserved.')
+                    ])
+                ])
+            ]);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            ReactDOM.render(React.createElement(App), document.getElementById('app'));
+        });
+    </script>
+</body>
+</html>

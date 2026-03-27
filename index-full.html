@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>عبدالعزيز الأبلم للمحاماة والاستشارات القانونية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FBD070",
+                        "background": "#2F3E46",
+                        "surface": "#37474F",
+                        "on-surface": "#FFFFFF"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                    },
+                },
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #2F3E46;
+        }
+        h1, h2, h3 {
+            font-family: 'Noto Serif', serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-white">
+    <div id="app"></div>
+    
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <script>
+        const { useState, useEffect } = React;
+        
+        function App() {
+            const [language, setLanguage] = useState('ar');
+
+            const toggleLanguage = () => {
+                const newLang = language === 'ar' ? 'en' : 'ar';
+                setLanguage(newLang);
+                document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
+                document.documentElement.lang = newLang;
+            };
+
+            const logoUrl = "https://lh3.googleusercontent.com/aida/ADBb0ug2d98s1M2O9BNNHaB4HFQxsb0Bf45yNcS7CJFQmyCmp3hX2lYaQejvENxNFv2ne7xeHZtompXveeH0d2PoaB3MoAk-0FVibMT8W92QMiK-yHmhIozdJ8VC7kSZp4kqOUQiv0NDbvKb1vC02wJschycLZB9Z5QOvUlmEUng1xu79R561GfbAav2el5BHRA1n0fJzSZYCRNDzrZjbMaFGuryEiad0NNc69QiL_wqGPRjstW2Zmbyc_TZZAvoUGxXRHviMHtikVzTyw";
+            const backgroundImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuAcmZoKcBE_ACH1RqZOj2_wtOs9sfWX8clguEHEJjJmSim8Evc2j3sw1pxdpBnZvNPygRQuM7d7yVix2atvhPo0pJHHck-pEzX9KVjxVPMzbUmJEZYS5Wjqw4Co8ceip7GMRaBAvSTn4uhfJ_ttmPaDCM7fMJQx4jvjspVwFYfBNUfBFBTNUezdUNRaExn7iVXAInYsXFGF9uc0vK8AELn2BeEF8ne2GIH6w8uIwiEccr-a3TKwWqOj2DHMOi7pKA0ZGoMDxA3UkAC_";
+            const officeImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuA-7d-SMf_sTZscITOv5PGV_0BqQzQXJ8bFlPKxBg3Fj0DkmgRwlj64-8aAKmwdEJEEznGBU0aaBj8Aee_jejqHNa6H1QNqeW9m6RkGBnXdWXgv4zzEAXmK7Enke7DCy2WCkBaqhXgliHP9VGPtGwmiJyjfTnMn-gBeqk7xKIkxKTzwFSPm0pAAL6QEafEmesvM2kJtKN8ZSZzkoE-G11HVtwiMnnlwRQ08hLCU3tldWRKg78LnayyFOvTUBZ2S2MX0_xFQl-cSQE_l";
+
+            const content = {
+                ar: {
+                    nav: {
+                        home: 'الرئيسية',
+                        services: 'خدماتنا الجنائية',
+                        expertise: 'مجالات الخبرة',
+                        about: 'نبذة تعريفية',
+                        contact: 'اتصل بنا'
+                    },
+                    hero: {
+                        badge: 'خبرة قانونية تتجاوز 20 عاماً',
+                        title: 'التميز في القانون الجنائي',
+                        subtitle: 'جوهر خبرتنا ونقطة قوتنا',
+                        description: 'بقيادة المحامي عبدالعزيز الأبلم، ضابط شرطة دبي ورئيس النيابة العامة السابق. نضع خبرتنا الميدانية والقضائية العميقة التي تتجاوز العشرين عاماً في خدمة حمايتكم وضمان حقوقكم القانونية.',
+                        cta1: 'طلب استشارة جنائية',
+                        cta2: 'خدماتنا القانونية'
+                    },
+                    services: {
+                        title: 'خدمات القانون الجنائي المتخصصة',
+                        subtitle: 'نقدم دفاعاً استراتيجياً وقوياً في كافة القضايا الجنائية',
+                        items: [
+                            { icon: 'account_balance', text: 'التمثيل والدفاع في مراحل التحقيق والنيابة' },
+                            { icon: 'history_edu', text: 'الاستئناف والطعن في الأحكام' },
+                            { icon: 'error', text: 'قضايا المخدرات، القتل، الاحتيال، وجرائم العنف' },
+                            { icon: 'gavel', text: 'جميع أنواع الجرائم الأخرى' }
+                        ]
+                    },
+                    methodology: {
+                        title: 'منهجية العمل والالتزام تجاه العميل',
+                        subtitle: 'نتبنى منهجاً يركز على العميل أولاً لضمان أعلى مستويات الخدمة والتميز المهني في كل قضية نتولاها.',
+                        items: [
+                            { icon: 'analytics', title: 'تحليل شامل', desc: 'دراسة معمقة لجميع تفاصيل القضية من منظور قانوني واستراتيجي.' },
+                            { icon: 'record_voice_over', title: 'شفافية التواصل', desc: 'إبقاء العميل على اطلاع مستمر بجميع مستجدات قضيته والخيارات المتاحة.' },
+                            { icon: 'lightbulb', title: 'حلول موجهة', desc: 'تصميم استراتيجيات قانونية تتناسب بدقة مع احتياجات وأهداف كل عميل.' },
+                            { icon: 'groups', title: 'فريق متكامل', desc: 'فريق من المحامين والمستشارين ذوي الكفاءة العالية والخبرة العملية والانسجام التام.' }
+                        ],
+                        commitment: {
+                            title: 'التزامنا الجنائي',
+                            description: 'نحن نقف بجانبك من اللحظة الأولى للتحقيق وحتى صدور الحكم النهائي. يضم فريقنا نخبة من المحامين المتخصصين في قضايا الجرائم الجنائية الكبرى، وجرائم ذوي الياقات البيضاء، والجرائم الإلكترونية، حيث نكرس كل خبرتنا القانونية لإعداد استراتيجيات دفاع قوية ومدروسة لحماية حقوقك وضمان محاكمة عادلة.'
+                        }
+                    },
+                    expertise: {
+                        title: 'مجالات الخبرة الشاملة',
+                        subtitle: 'يتميز مكتبنا بخلفية مؤسسنا القانونية العريقة كضابط شرطة سابق ورئيس نيابة سابق، مما يمنحنا قوة استثنائية في القانون الجنائي، بجانب تميزنا في المجالات التالية:',
+                        cta: 'طلب استشارة الآن',
+                        items: [
+                            { icon: 'corporate_fare', title: 'القانون التجاري والشركات', desc: 'تأسيس الشركات، عقود الشراكة، التحكيم التجاري، النزاعات بين الشركاء.' },
+                            { icon: 'payments', title: 'القانون المدني', desc: 'المطالبات المالية، العقود المدنية، قضايا التعويض، الملكية الفكرية.' },
+                            { icon: 'family_restroom', title: 'قانون الأحوال الشخصية', desc: 'قضايا الزواج والطلاق، الميراث، الحضانة والنفقة.' },
+                            { icon: 'apartment', title: 'القانون العقاري', desc: 'نزاعات الأراضي والعقارات، صياغة ومراجعة عقود البيع والإيجار.' },
+                            { icon: 'gavel', title: 'الاستشارات القانونية', desc: 'تقديم استشارات دقيقة وموثوقة للمؤسسات والأفراد لاتخاذ قرارات سليمة.' },
+                            { icon: 'security', title: 'القانون الجنائي', desc: 'جوهر خبرتنا ونقطة تميزنا', special: true }
+                        ]
+                    },
+                    about: {
+                        title: 'الهوية والرؤية',
+                        vision: '"نحن نؤمن بأن القانون ليس مجرد نصوص، بل هو حصن العدالة ودرع الحقوق. تأسس مكتبنا على مبادئ النزاهة، الكفاءة، والالتزام المطلق بتمثيل مصالح عملائنا."',
+                        mission: {
+                            title: 'رسالتنا',
+                            desc: 'تقديم خدمات قانونية متكاملة وعالية الجودة عبر كافة فروع القانون، مع التزامنا التام بتحقيق أفضل النتائج لعملائنا بكل احترافية وشفافية.'
+                        },
+                        values: {
+                            title: 'قيمنا',
+                            items: [
+                                { label: 'العدالة', desc: 'السعي لتحقيق العدالة لجميع عملائنا.' },
+                                { label: 'المهنية', desc: 'الالتزام بأعلى معايير السلوك المهني والأخلاقي.' },
+                                { label: 'السرية', desc: 'الحفاظ على سرية وخصوصية جميع معلومات عملائنا.' }
+                            ]
+                        },
+                        profile: {
+                            name: 'عبدالعزيز الأبلم',
+                            role: 'المحامي والمؤسس - خبرة تتجاوز 20 عاماً',
+                            bio: 'شغل المحامي عبدالعزيز الأبلم عدة وظائف ذات صلة وثيقة بمجال عمل المكتب؛ فقد عمل ضابطاً بشرطة دبي ثم رئيساً للنيابة العامة بنيابة دبي، ثم اتجه إلى مجال المحاماة حيث عمل به لمدة جاوزت العشرين عاماً.',
+                            stats: [
+                                { label: 'عاماً خبرة', value: '20+' },
+                                { label: 'تزام بالعدالة', value: '100%' }
+                            ]
+                        }
+                    },
+                    contact: {
+                        title: 'لنتواصل لمناقشة قضيتك',
+                        subtitle: 'فريقنا القانوني جاهز لاستقبال استفساراتكم وتقديم المشورة اللازمة في مكاتبنا.',
+                        phone: '042845200',
+                        email: 'info@alablam.org',
+                        location: 'دبي، بورسعيد، بناية العويس، مكتب 506',
+                        form: {
+                            name: 'الاسم الكامل',
+                            phone: 'رقم الهاتف',
+                            service: 'نوع الخدمة',
+                            message: 'تفاصيل الاستفسار',
+                            submit: 'إرسال الطلب الآن',
+                            placeholders: {
+                                name: 'أدخل اسمك',
+                                phone: '05x --- ----',
+                                message: 'كيف يمكننا مساعدتكم؟'
+                            },
+                            options: [
+                                'استشارة جنائية (Core)',
+                                'القانون التجاري والشركات',
+                                'القانون المدني',
+                                'قانون الأحوال الشخصية',
+                                'القانون العقاري'
+                            ]
+                        }
+                    },
+                    footer: {
+                        description: 'نحن نؤمن بأن القانون ليس مجرد نصوص، بل هو حصن العدالة ودرع الحقوق. مكتب متخصص في تقديم الحلول القانونية المبتكرة والفعالة بقيادة نخبة من الخبراء.',
+                        quickLinks: 'روابط سريعة',
+                        mainServices: 'الخدمات الرئيسية',
+                        businessHours: 'ساعات العمل',
+                        hours: {
+                            weekdays: 'الإثنين - الجمعة: 9 صباحاً - 6 مساءً',
+                            saturday: 'السبت: 10 صباحاً - 2 مساءً'
+                        },
+                        copyright: '© 2024 Abdulaziz Al-Ablam Lawyers & Legal Consultants. All Rights Reserved.'
+                    }
+                },
+                en: {
+                    nav: {
+                        home: 'HOME',
+                        services: 'SERVICES',
+                        expertise: 'EXPERTISE',
+                        about: 'ABOUT',
+                        contact: 'CONTACT'
+                    },
+                    hero: {
+                        badge: 'Premier Legal Protection in UAE',
+                        title: 'The Fortress of Justice and Shield of Rights',
+                        subtitle: '',
+                        description: 'Under leadership of Attorney Abdulaziz Al-Ablam, former Dubai Police Officer and Chief Prosecutor. With over 20 years of practice, we provide elite Criminal Law defense and innovative legal solutions across Emirates.',
+                        cta1: 'REQUEST CONSULTATION',
+                        cta2: 'OUR SERVICES'
+                    },
+                    services: {
+                        title: 'Criminal Law Services',
+                        subtitle: 'We provide strategic and strong defense in all criminal cases',
+                        items: [
+                            { icon: 'shield', text: 'Representation and defense during investigation and prosecution stages.' },
+                            { icon: 'history_edu', text: 'Appeals and challenging judgments.' },
+                            { icon: 'error', text: 'Cases involving drugs, murder, fraud, and violent crimes.' },
+                            { icon: 'gavel', text: 'And all other types of crimes.' }
+                        ]
+                    },
+                    methodology: {
+                        title: 'Work Methodology & Client Commitment',
+                        subtitle: 'We adopt a client-first approach to ensure the highest levels of service and professional excellence in every case we handle.',
+                        items: [
+                            { icon: 'analytics', title: 'Comprehensive Analysis', desc: 'In-depth study of all case details from a legal and strategic perspective.' },
+                            { icon: 'campaign', title: 'Transparent Communication', desc: 'Keeping client continuously informed of all case developments and available options.' },
+                            { icon: 'psychology', title: 'Targeted Solutions', desc: 'Designing legal strategies precisely tailored to needs and goals of each client.' },
+                            { icon: 'groups', title: 'Dedicated Team', desc: 'A highly skilled legal team working cohesively to provide best representation possible.' }
+                        ],
+                        commitment: {
+                            title: 'Our Criminal Commitment:',
+                            description: 'We stand by you from the first moment of investigation until the final verdict. Our team comprises an elite group of lawyers specializing in cases of major criminal offenses, white-collar crimes, and Cybercrimes. We dedicate all our legal expertise to preparing strong, well-thought-out defense strategies to protect your rights and ensure a fair trial.'
+                        }
+                    },
+                    expertise: {
+                        title: 'Legal Practice Areas',
+                        subtitle: 'Led by an expert with 20 years of experience, supported by consultants with over 15 years of expertise.',
+                        cta: 'CONTACT US NOW',
+                        items: [
+                            { icon: 'corporate_fare', title: 'Commercial & Corporate Law', desc: 'Company formation, partnership agreements, commercial arbitration, shareholder disputes.' },
+                            { icon: 'balance', title: 'Civil Law', desc: 'Financial claims, civil contracts, compensation cases, intellectual property.' },
+                            { icon: 'family_restroom', title: 'Personal Status Law', desc: 'Marriage and divorce cases, inheritance, custody, and alimony.' },
+                            { icon: 'apartment', title: 'Real Estate Law', desc: 'Land and property disputes, drafting and reviewing sale and lease contracts.' },
+                            { icon: 'verified_user', title: 'Legal Consultancy', desc: 'Providing accurate and reliable advice for institutions and individuals to make sound decisions.' },
+                            { icon: 'security', title: 'Need Immediate Legal Advice?', desc: 'Our multidisciplinary team is available for urgent consultations across all branches of law.', special: true }
+                        ]
+                    },
+                    about: {
+                        title: 'Identity, Mission & Values',
+                        vision: 'We, Abdulaziz Alablam Law Firm & Legal Consultants, believe that law is not merely a set of texts; it is fortress of justice and shield of rights. Our firm was established on principles of integrity, competence, and absolute commitment to representing our clients\' interests and providing innovative, effective legal solutions in face of most complex challenges.',
+                        mission: {
+                            title: 'Our Mission',
+                            desc: 'To provide integrated, high-quality legal services across all branches of law, with an unwavering commitment to achieving the best possible results for our clients with utmost professionalism and transparency.'
+                        },
+                        values: {
+                            title: 'Our Values',
+                            items: [
+                                { label: 'Justice', desc: 'Striving to achieve justice for all our clients.' },
+                                { label: 'Professionalism', desc: 'Adhering to the highest standards of professional and ethical conduct.' },
+                                { label: 'Confidentiality', desc: 'Maintaining secrecy and privacy of all client information.' }
+                            ]
+                        },
+                        profile: {
+                            name: 'Abdulaziz Al-Ablam',
+                            role: 'Founder & Attorney - 20+ Years Experience',
+                            bio: 'The firm\'s founder, Attorney Abdulaziz Alablam, served as a Dubai Police Officer, then as Chief Prosecutor at Dubai Public Prosecution, and subsequently practiced law for over twenty years.',
+                            stats: [
+                                { label: 'Years Practice', value: '20+' },
+                                { label: 'Justice Commitment', value: '100%' }
+                            ]
+                        }
+                    },
+                    contact: {
+                        title: 'Secure Your Rights',
+                        subtitle: 'Our legal team is ready to receive your inquiries and schedule an appointment for a personal meeting at our offices in Dubai.',
+                        phone: '04 284 5200',
+                        email: 'info@alablam.org',
+                        location: 'Deira, Port Saeed, Al Owais bldg., Office 506',
+                        form: {
+                            name: 'Full Name',
+                            phone: 'Phone Number',
+                            service: 'Service Required',
+                            message: 'Inquiry Details',
+                            submit: 'SUBMIT REQUEST',
+                            placeholders: {
+                                name: 'Enter your name',
+                                phone: '+971 -- --- ----',
+                                message: 'How can we help you?'
+                            },
+                            options: [
+                                'Criminal Defense',
+                                'Commercial & Corporate Law',
+                                'Civil Cases',
+                                'Real Estate Law',
+                                'Personal Status Law',
+                                'Legal Consultancy'
+                            ]
+                        }
+                    },
+                    footer: {
+                        description: 'A leading law firm in United Arab Emirates, specializing in innovative legal solutions and premier criminal defense founded by former Chief Prosecutor Abdulaziz Al-Ablam.',
+                        quickLinks: 'Quick Links',
+                        mainServices: 'Our Focus',
+                        businessHours: 'Business Hours',
+                        hours: {
+                            weekdays: 'Mon - Fri: 09:00 AM - 06:00 PM',
+                            saturday: 'Sat: 10:00 AM - 02:00 PM'
+                        },
+                        copyright: '© 2024 ABDULAZIZ AL-ABLAM ADVOCATES & LEGAL CONSULTANTS. ALL RIGHTS RESERVED.'
+                    }
+                }
+            };
+
+            const t = content[language];
+
+            return React.createElement('div', {
+                className: 'min-h-screen bg-background text-white'
+            }, [
+                // Navigation
+                React.createElement('nav', {
+                    key: 'nav',
+                    className: 'fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-white/10'
+                }, [
+                    React.createElement('div', {
+                        key: 'nav-content',
+                        className: 'flex justify-between items-center max-w-7xl mx-auto px-6 h-20'
+                    }, [
+                        React.createElement('div', {
+                            key: 'logo-section',
+                            className: 'flex items-center gap-4'
+                        }, [
+                            React.createElement('img', {
+                                key: 'logo',
+                                alt: 'Abdulaziz Alablam Logo',
+                                className: 'h-14 w-auto object-contain',
+                                src: logoUrl
+                            }),
+                            React.createElement('div', {
+                                key: 'logo-text',
+                                className: 'hidden sm:block text-lg font-bold text-white'
+                            }, [
+                                language === 'ar' ? 'عبدالعزيز الأبلم' : 'Abdulaziz Al-Ablam',
+                                React.createElement('br'),
+                                React.createElement('span', {
+                                    className: language === 'ar' ? 'text-primary text-xs font-normal' : 'text-[10px] uppercase tracking-widest text-primary font-sans font-semibold'
+                                }, language === 'ar' ? 'للمحاماة والاستشارات القانونية' : 'Advocates & Legal Consultants')
+                            ])
+                        ]),
+                        
+                        React.createElement('div', {
+                            key: 'nav-links',
+                            className: 'hidden md:flex gap-8 items-center'
+                        }, Object.entries(t.nav).map(([key, value]) =>
+                            React.createElement('a', {
+                                key: key,
+                                href: `#${key === 'home' ? 'home' : key}`,
+                                className: key === 'home' ? 'text-primary font-semibold border-b border-primary pb-1' : 'text-white/80 hover:text-primary transition-colors text-sm font-medium'
+                            }, value)
+                        )),
+
+                        React.createElement('button', {
+                            key: 'lang-switch',
+                            onClick: toggleLanguage,
+                            className: 'flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/30 text-primary hover:bg-primary hover:text-background transition-all'
+                        }, [
+                            React.createElement('span', { key: 'icon', className: 'material-symbols-outlined text-sm' }, 'language'),
+                            React.createElement('span', { key: 'text', className: 'text-xs font-bold tracking-widest' }, 'AR/EN')
+                        ])
+                    ])
+                ]),
+
+                // Hero Section
+                React.createElement('section', {
+                    key: 'hero',
+                    id: 'home',
+                    className: 'relative min-h-screen flex items-center pt-20 overflow-hidden'
+                }, [
+                    React.createElement('div', {
+                        key: 'hero-bg',
+                        className: 'absolute inset-0 z-0'
+                    }, [
+                        React.createElement('div', {
+                            key: 'gradient',
+                            className: 'absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10'
+                        }),
+                        React.createElement('img', {
+                            key: 'bg-image',
+                            alt: 'Legal background',
+                            className: 'w-full h-full object-cover opacity-30',
+                            src: backgroundImage
+                        })
+                    ]),
+                    React.createElement('div', {
+                        key: 'hero-content',
+                        className: 'max-w-7xl mx-auto px-6 relative z-10 w-full'
+                    }, [
+                        React.createElement('div', {
+                            key: 'hero-text',
+                            className: 'max-w-3xl space-y-8'
+                        }, [
+                            React.createElement('div', {
+                                key: 'badge',
+                                className: 'inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest'
+                            }, [
+                                React.createElement('span', { key: 'dot', className: 'w-2 h-2 bg-primary rounded-full animate-pulse' }),
+                                t.hero.badge
+                            ]),
+                            
+                            React.createElement('h1', {
+                                key: 'title',
+                                className: 'text-5xl lg:text-7xl font-bold leading-[1.15]'
+                            }, [
+                                language === 'ar' ? 'التميز في ' : 'The ',
+                                React.createElement('span', {
+                                    key: 'highlight',
+                                    className: 'text-primary'
+                                }, language === 'ar' ? 'القانون الجنائي' : 'Fortress'),
+                                ' ',
+                                language === 'ar' ? 'جوهر خبرتنا ونقطة قوتنا' : 'of Justice and Shield of Rights'
+                            ]),
+                            
+                            React.createElement('p', {
+                                key: 'description',
+                                className: 'text-lg text-white/70 leading-relaxed'
+                            }, t.hero.description),
+                            
+                            React.createElement('div', {
+                                key: 'buttons',
+                                className: 'flex flex-wrap gap-4 pt-4'
+                            }, [
+                                React.createElement('a', {
+                                    key: 'cta1',
+                                    href: '#contact',
+                                    className: 'px-8 py-4 bg-primary text-background font-bold rounded hover:brightness-110 transition-all flex items-center gap-3'
+                                }, [
+                                    t.hero.cta1,
+                                    React.createElement('span', { key: 'icon1', className: 'material-symbols-outlined' }, language === 'ar' ? 'gavel' : 'arrow_forward')
+                                ]),
+                                React.createElement('a', {
+                                    key: 'cta2',
+                                    href: '#services',
+                                    className: 'px-8 py-4 border border-white/20 text-white font-bold rounded hover:bg-white/10 transition-all'
+                                }, t.hero.cta2)
+                            ])
+                        ])
+                    ])
+                ]),
+
+                // Services Section
+                React.createElement('section', {
+                    key: 'services',
+                    id: 'services',
+                    className: 'py-24 bg-surface'
+                }, [
+                    React.createElement('div', {
+                        key: 'services-content',
+                        className: 'max-w-7xl mx-auto px-6'
+                    }, [
+                        React.createElement('div', {
+                            key: 'services-header',
+                            className: 'text-center max-w-3xl mx-auto mb-16'
+                        }, [
+                            React.createElement('h2', {
+                                key: 'services-title',
+                                className: 'text-3xl font-bold text-primary mb-6'
+                            }, t.services.title),
+                            React.createElement('p', {
+                                key: 'services-subtitle',
+                                className: 'text-white/70 text-lg'
+                            }, t.services.subtitle)
+                        ]),
+                        
+                        React.createElement('div', {
+                            key: 'services-grid',
+                            className: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'
+                        }, t.services.items.map((service, index) =>
+                            React.createElement('div', {
+                                key: `service-${index}`,
+                                className: 'p-8 bg-background border border-primary/10 hover:border-primary/40 transition-all text-center'
+                            }, [
+                                React.createElement('span', {
+                                    key: `icon-${index}`,
+                                    className: 'material-symbols-outlined text-primary text-4xl mb-4'
+                                }, service.icon),
+                                React.createElement('p', {
+                                    key: `text-${index}`,
+                                    className: 'font-bold text-white'
+                                }, service.text)
+                            ])
+                        ))
+                    ])
+                ]),
+
+                // Methodology Section
+                React.createElement('section', {
+                    key: 'methodology',
+                    className: 'py-24 bg-background'
+                }, [
+                    React.createElement('div', {
+                        key: 'methodology-content',
+                        className: 'max-w-7xl mx-auto px-6'
+                    }, [
+                        React.createElement('div', {
+                            key: 'methodology-header',
+                            className: 'grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-20'
+                        }, [
+                            React.createElement('div', {
+                                key: 'methodology-title',
+                                className: 'border-r-4 border-primary pr-4'
+                            }, [
+                                React.createElement('h2', {
+                                    key: 'title',
+                                    className: 'text-3xl font-bold mb-6 text-primary'
+                                }, t.methodology.title),
+                                React.createElement('p', {
+                                    key: 'subtitle',
+                                    className: 'text-white/70 text-lg'
+                                }, t.methodology.subtitle)
+                            ]),
+                            
+                            React.createElement('div', {
+                                key: 'methodology-items',
+                                className: 'grid grid-cols-1 sm:grid-cols-2 gap-6'
+                            }, t.methodology.items.map((item, index) =>
+                                React.createElement('div', {
+                                    key: `item-${index}`,
+                                    className: 'p-6 bg-surface border border-white/5 hover:border-primary/30 transition-all'
+                                }, [
+                                    React.createElement('span', {
+                                        key: `icon-${index}`,
+                                        className: 'material-symbols-outlined text-primary mb-4 text-3xl'
+                                    }, item.icon),
+                                    React.createElement('h3', {
+                                        key: `title-${index}`,
+                                        className: 'text-lg font-bold mb-2 text-white'
+                                    }, item.title),
+                                    React.createElement('p', {
+                                        key: `desc-${index}`,
+                                        className: 'text-sm text-white/60'
+                                    }, item.desc)
+                                ])
+                            ))
+                        ]),
+                        
+                        React.createElement('div', {
+                            key: 'commitment',
+                            className: 'bg-primary p-12 text-background'
+                        }, [
+                            React.createElement('div', {
+                                key: 'commitment-content',
+                                className: 'flex flex-col lg:flex-row gap-10 items-center'
+                            }, [
+                                React.createElement('div', {
+                                    key: 'commitment-text',
+                                    className: 'lg:w-2/3 space-y-4'
+                                }, [
+                                    React.createElement('h3', {
+                                        key: 'commitment-title',
+                                        className: 'text-2xl font-bold flex items-center gap-3'
+                                    }, [
+                                        React.createElement('span', { key: 'icon', className: 'material-symbols-outlined' }, 'security'),
+                                        t.methodology.commitment.title
+                                    ]),
+                                    React.createElement('p', {
+                                        key: 'commitment-desc',
+                                        className: 'text-lg leading-relaxed font-medium'
+                                    }, t.methodology.commitment.description)
+                                ]),
+                                React.createElement('div', {
+                                    key: 'commitment-logo',
+                                    className: 'lg:w-1/3 flex justify-center'
+                                }, [
+                                    React.createElement('img', {
+                                        key: 'logo',
+                                        alt: 'Firm Logo',
+                                        className: 'h-40 grayscale brightness-0 opacity-80',
+                                        src: logoUrl
+                                    })
+                                ])
+                            ])
+                        ])
+                    ])
+                ]),
+
+                // Expertise Section
+                React.createElement('section', {
+                    key: 'expertise',
+                    id: 'expertise',
+                    className: 'py-24 bg-surface'
+                }, [
+                    React.createElement('div', {
+                        key: 'expertise-content',
+                        className: 'max-w-7xl mx-auto px-6'
+                    }, [
+                        React.createElement('div', {
+                            key: 'expertise-header',
+                            className: 'flex flex-col md:flex-row justify-between items-end mb-16 gap-6'
+                        }, [
+                            React.createElement('div', {
+                                key: 'expertise-title',
+                                className: 'max-w-2xl'
+                            }, [
+                                React.createElement('h2', {
+                                    key: 'title',
+                                    className: 'text-3xl font-bold text-primary mb-4'
+                                }, t.expertise.title),
+                                React.createElement('p', {
+                                    key: 'subtitle',
+                                    className: 'text-white/70'
+                                }, t.expertise.subtitle)
+                            ]),
+                            React.createElement('a', {
+                                key: 'expertise-cta',
+                                href: '#contact',
+                                className: 'text-primary hover:text-white transition-colors flex items-center gap-2 font-bold border-b border-primary pb-1'
+                            }, [
+                                t.expertise.cta,
+                                React.createElement('span', { key: 'icon', className: 'material-symbols-outlined' }, language === 'ar' ? 'arrow_left' : 'arrow_forward')
+                            ])
+                        ]),
+                        
+                        React.createElement('div', {
+                            key: 'expertise-grid',
+                            className: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+                        }, t.expertise.items.map((item, index) =>
+                            React.createElement('div', {
+                                key: `expertise-${index}`,
+                                className: item.special ? 'p-8 bg-primary flex flex-col justify-center items-center text-center' : 'p-8 bg-background border-r-4 border-primary/40 hover:border-primary transition-all'
+                            }, [
+                                React.createElement('h3', {
+                                    key: `title-${index}`,
+                                    className: item.special ? 'text-2xl font-bold text-background mb-2' : 'text-xl font-bold mb-4 text-primary'
+                                }, item.title),
+                                React.createElement('p', {
+                                    key: `desc-${index}`,
+                                    className: item.special ? 'text-background/80 font-bold mb-6' : 'text-white/60 text-sm leading-relaxed mb-4'
+                                }, item.desc),
+                                item.special ? React.createElement('button', {
+                                    key: `btn-${index}`,
+                                    className: 'bg-background text-white px-6 py-2 text-sm font-bold rounded hover:bg-black transition-colors'
+                                }, language === 'ar' ? 'تعرف على المزيد' : 'CONTACT US NOW') : React.createElement('span', {
+                                    key: `icon-${index}`,
+                                    className: 'material-symbols-outlined text-white/20 text-4xl'
+                                }, item.icon)
+                            ])
+                        ))
+                    ])
+                ]),
+
+                // About Section
+                React.createElement('section', {
+                    key: 'about',
+                    id: 'about',
+                    className: 'py-24 bg-background'
+                }, [
+                    React.createElement('div', {
+                        key: 'about-content',
+                        className: 'max-w-7xl mx-auto px-6'
+                    }, [
+                        React.createElement('div', {
+                            key: 'about-grid',
+                            className: 'grid grid-cols-1 lg:grid-cols-2 gap-20 items-center'
+                        }, [
+                            React.createElement('div', {
+                                key: 'about-left',
+                                className: 'space-y-10'
+                            }, [
+                                React.createElement('div', {
+                                    key: 'about-vision',
+                                    className: 'border-r-4 border-primary pr-6'
+                                }, [
+                                    React.createElement('h2', {
+                                        key: 'title',
+                                        className: 'text-3xl font-bold text-white mb-4'
+                                    }, t.about.title),
+                                    React.createElement('p', {
+                                        key: 'vision',
+                                        className: 'text-white/70 leading-relaxed italic'
+                                    }, t.about.vision)
+                                ]),
+                                
+                                React.createElement('div', {
+                                    key: 'about-mission',
+                                    className: 'flex gap-6'
+                                }, [
+                                    React.createElement('div', {
+                                        key: 'mission-icon',
+                                        className: 'shrink-0 w-12 h-12 bg-primary/10 flex items-center justify-center border border-primary/20'
+                                    }, [
+                                        React.createElement('span', { key: 'icon', className: 'material-symbols-outlined text-primary' }, 'rocket_launch')
+                                    ]),
+                                    React.createElement('div', {
+                                        key: 'mission-content'
+                                    }, [
+                                        React.createElement('h4', {
+                                            key: 'title',
+                                            className: 'text-xl font-bold text-primary mb-2'
+                                        }, t.about.mission.title),
+                                        React.createElement('p', {
+                                            key: 'desc',
+                                            className: 'text-white/60 text-sm leading-relaxed'
+                                        }, t.about.mission.desc)
+                                    ])
+                                ]),
+                                
+                                React.createElement('div', {
+                                    key: 'about-values',
+                                    className: 'flex gap-6'
+                                }, [
+                                    React.createElement('div', {
+                                        key: 'values-icon',
+                                        className: 'shrink-0 w-12 h-12 bg-primary/10 flex items-center justify-center border border-primary/20'
+                                    }, [
+                                        React.createElement('span', { key: 'icon', className: 'material-symbols-outlined text-primary' }, 'workspace_premium')
+                                    ]),
+                                    React.createElement('div', {
+                                        key: 'values-content'
+                                    }, [
+                                        React.createElement('h4', {
+                                            key: 'title',
+                                            className: 'text-xl font-bold text-primary mb-2'
+                                        }, t.about.values.title),
+                                        React.createElement('ul', {
+                                            key: 'values-list',
+                                            className: 'text-white/60 text-sm space-y-2'
+                                        }, t.about.values.items.map((value, index) =>
+                                            React.createElement('li', {
+                                                key: `value-${index}`,
+                                                className: 'flex items-center gap-2'
+                                            }, [
+                                                React.createElement('span', { key: 'dot', className: 'w-1.5 h-1.5 bg-primary rounded-full' }),
+                                                React.createElement('strong', { key: 'label' }, `${value.label}: `),
+                                                React.createElement('span', { key: 'desc' }, value.desc)
+                                            ])
+                                        ))
+                                    ])
+                                ])
+                            ]),
+                            
+                            React.createElement('div', {
+                                key: 'about-right',
+                                className: 'relative'
+                            }, [
+                                React.createElement('div', {
+                                    key: 'about-image-container',
+                                    className: 'aspect-square bg-surface border border-primary/20 overflow-hidden'
+                                }, [
+                                    React.createElement('img', {
+                                        key: 'about-image',
+                                        alt: 'Legal Office',
+                                        className: 'w-full h-full object-cover opacity-60',
+                                        src: officeImage
+                                    }),
+                                    React.createElement('div', {
+                                        key: 'image-overlay',
+                                        className: 'absolute inset-0 bg-gradient-to-t from-background to-transparent'
+                                    }),
+                                    React.createElement('div', {
+                                        key: 'image-stats',
+                                        className: 'absolute bottom-10 right-10 left-10 p-8 border border-primary/30 bg-background/80 backdrop-blur-md'
+                                    }, [
+                                        React.createElement('h4', {
+                                            key: 'profile-name',
+                                            className: 'text-primary font-bold mb-2'
+                                        }, t.about.profile.name),
+                                        React.createElement('p', {
+                                            key: 'profile-role',
+                                            className: 'text-xs text-white/60 mb-4'
+                                        }, t.about.profile.role),
+                                        React.createElement('div', {
+                                            key: 'stats-grid',
+                                            className: 'grid grid-cols-2 gap-4'
+                                        }, t.about.profile.stats.map((stat, index) =>
+                                            React.createElement('div', {
+                                                key: `stat-${index}`,
+                                                className: 'text-center p-2 bg-white/5'
+                                            }, [
+                                                React.createElement('span', {
+                                                    key: `value-${index}`,
+                                                    className: 'block text-xl font-bold text-white'
+                                                }, stat.value),
+                                                React.createElement('span', {
+                                                    key: `label-${index}`,
+                                                    className: 'text-[10px] uppercase tracking-wider text-white/40'
+                                                }, stat.label)
+                                            ])
+                                        ))
+                                    ])
+                                ])
+                            ])
+                        ])
+                    ])
+                ]),
+
+                // Contact Section
+                React.createElement('section', {
+                    key: 'contact',
+                    id: 'contact',
+                    className: 'py-24 bg-background'
+                }, [
+                    React.createElement('div', {
+                        key: 'contact-content',
+                        className: 'max-w-7xl mx-auto px-6'
+                    }, [
+                        React.createElement('div', {
+                            key: 'contact-header',
+                            className: 'text-center mb-16'
+                        }, [
+                            React.createElement('h2', {
+                                key: 'contact-title',
+                                className: 'text-4xl font-bold text-primary mb-8'
+                            }, [
+                                language === 'ar' ? 'لنتواصل لمناقشة ' : 'Secure Your ',
+                                React.createElement('span', { key: 'highlight', className: 'text-primary' }, language === 'ar' ? 'قضيتك' : 'Rights')
+                            ]),
+                            React.createElement('p', {
+                                key: 'contact-subtitle',
+                                className: 'text-white/60 text-lg'
+                            }, t.contact.subtitle)
+                        ]),
+                        
+                        React.createElement('div', {
+                            key: 'contact-grid',
+                            className: 'grid grid-cols-1 lg:grid-cols-2 bg-surface border border-white/5 overflow-hidden'
+                        }, [
+                            React.createElement('div', {
+                                key: 'contact-info',
+                                className: 'p-12 space-y-12'
+                            }, [
+                                React.createElement('div', {
+                                    key: 'info-items',
+                                    className: 'space-y-8'
+                                }, [
+                                    {
+                                        icon: 'call',
+                                        info: t.contact.phone,
+                                        label: language === 'ar' ? 'اتصل بنا' : 'Call Us'
+                                    },
+                                    {
+                                        icon: 'mail',
+                                        info: t.contact.email,
+                                        label: language === 'ar' ? 'البريد الإلكتروني' : 'Email Address'
+                                    },
+                                    {
+                                        icon: 'location_on',
+                                        info: t.contact.location,
+                                        label: language === 'ar' ? 'الموقع' : 'Location'
+                                    }
+                                ].map((item, index) =>
+                                    React.createElement('div', {
+                                        key: `contact-item-${index}`,
+                                        className: 'flex items-center gap-6'
+                                    }, [
+                                        React.createElement('div', {
+                                            key: `icon-container-${index}`,
+                                            className: 'w-12 h-12 border border-primary/30 flex items-center justify-center'
+                                        }, [
+                                            React.createElement('span', {
+                                                key: `icon-${index}`,
+                                                className: 'material-symbols-outlined text-primary text-xl'
+                                            }, item.icon)
+                                        ]),
+                                        React.createElement('div', {
+                                            key: `info-container-${index}`
+                                        }, [
+                                            React.createElement('p', {
+                                                key: `label-${index}`,
+                                                className: 'text-[10px] uppercase tracking-widest text-white/40 mb-1'
+                                            }, item.label),
+                                            React.createElement('p', {
+                                                key: `info-${index}`,
+                                                className: 'text-lg font-bold'
+                                            }, item.info)
+                                        ])
+                                    ])
+                                ))
+                            ])
+                        ]),
+                        
+                        React.createElement('div', {
+                            key: 'contact-form',
+                            className: 'p-12 bg-background/50'
+                        }, [
+                            React.createElement('form', {
+                                key: 'form',
+                                className: 'space-y-6',
+                                onSubmit: (e) => {
+                                    e.preventDefault();
+                                    alert(language === 'ar' ? 'تم إرسال طلبك بنجاح!' : 'Your request has been submitted successfully!');
+                                }
+                            }, [
+                                React.createElement('div', {
+                                    key: 'form-row',
+                                    className: 'grid grid-cols-1 md:grid-cols-2 gap-6'
+                                }, [
+                                    React.createElement('div', {
+                                        key: 'name-field',
+                                        className: 'space-y-2'
+                                    }, [
+                                        React.createElement('label', {
+                                            key: 'name-label',
+                                            className: 'text-[10px] font-bold text-white/40 uppercase tracking-widest'
+                                        }, t.contact.form.name),
+                                        React.createElement('input', {
+                                            key: 'name-input',
+                                            type: 'text',
+                                            className: 'w-full px-4 py-3 bg-white/5 border border-white/10 text-white focus:border-primary focus:ring-0 transition-all outline-none',
+                                            placeholder: t.contact.form.placeholders.name
+                                        })
+                                    ]),
+                                    React.createElement('div', {
+                                        key: 'phone-field',
+                                        className: 'space-y-2'
+                                    }, [
+                                        React.createElement('label', {
+                                            key: 'phone-label',
+                                            className: 'text-[10px] font-bold text-white/40 uppercase tracking-widest'
+                                        }, t.contact.form.phone),
+                                        React.createElement('input', {
+                                            key: 'phone-input',
+                                            type: 'tel',
+                                            className: 'w-full px-4 py-3 bg-white/5 border border-white/10 text-white focus:border-primary focus:ring-0 transition-all outline-none',
+                                            placeholder: t.contact.form.placeholders.phone
+                                        })
+                                    ])
+                                ]),
+                                
+                                React.createElement('div', {
+                                    key: 'service-field',
+                                    className: 'space-y-2'
+                                }, [
+                                    React.createElement('label', {
+                                        key: 'service-label',
+                                        className: 'text-[10px] font-bold text-white/40 uppercase tracking-widest'
+                                    }, t.contact.form.service),
+                                    React.createElement('select', {
+                                        key: 'service-select',
+                                        className: 'w-full px-4 py-3 bg-white/5 border border-white/10 text-white focus:border-primary focus:ring-0 transition-all outline-none'
+                                    }, t.contact.form.options.map((option, index) =>
+                                        React.createElement('option', {
+                                            key: `option-${index}`,
+                                            value: option
+                                        }, option)
+                                    ))
+                                ]),
+                                
+                                React.createElement('div', {
+                                    key: 'message-field',
+                                    className: 'space-y-2'
+                                }, [
+                                    React.createElement('label', {
+                                        key: 'message-label',
+                                        className: 'text-[10px] font-bold text-white/40 uppercase tracking-widest'
+                                    }, t.contact.form.message),
+                                    React.createElement('textarea', {
+                                        key: 'message-textarea',
+                                        rows: 4,
+                                        className: 'w-full px-4 py-3 bg-white/5 border border-white/10 text-white focus:border-primary focus:ring-0 transition-all outline-none',
+                                        placeholder: t.contact.form.placeholders.message
+                                    })
+                                ]),
+                                
+                                React.createElement('button', {
+                                    key: 'submit-btn',
+                                    type: 'submit',
+                                    className: 'w-full py-4 bg-primary text-background font-bold uppercase tracking-widest hover:brightness-110 transition-all'
+                                }, t.contact.form.submit)
+                            ])
+                        ])
+                    ])
+                ]),
+
+                // Footer
+                React.createElement('footer', {
+                    key: 'footer',
+                    className: 'bg-background border-t border-white/5 py-16'
+                }, [
+                    React.createElement('div', {
+                        key: 'footer-content',
+                        className: 'max-w-7xl mx-auto px-6'
+                    }, [
+                        React.createElement('div', {
+                            key: 'footer-grid',
+                            className: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12'
+                        }, [
+                            React.createElement('div', {
+                                key: 'footer-info',
+                                className: 'space-y-6'
+                            }, [
+                                React.createElement('img', {
+                                    key: 'footer-logo',
+                                    alt: 'Abdulaziz Alablam Logo',
+                                    className: 'h-16 w-auto',
+                                    src: logoUrl
+                                }),
+                                React.createElement('p', {
+                                    key: 'footer-desc',
+                                    className: 'text-white/40 text-sm leading-relaxed'
+                                }, t.footer.description)
+                            ]),
+                            
+                            React.createElement('div', {
+                                key: 'footer-links',
+                                className: 'space-y-6'
+                            }, [
+                                React.createElement('h4', {
+                                    key: 'links-title',
+                                    className: 'text-primary font-bold uppercase tracking-widest text-xs'
+                                }, t.footer.quickLinks),
+                                React.createElement('ul', {
+                                    key: 'links-list',
+                                    className: 'space-y-4 text-sm text-white/60'
+                                }, Object.entries(t.nav).map(([key, value]) =>
+                                    React.createElement('li', {
+                                        key: `link-${key}`
+                                    }, [
+                                        React.createElement('a', {
+                                            key: `link-${key}-anchor`,
+                                            href: `#${key === 'home' ? 'home' : key}`,
+                                            className: 'hover:text-primary transition-colors'
+                                        }, value)
+                                    ])
+                                ))
+                            ]),
+                            
+                            React.createElement('div', {
+                                key: 'footer-services',
+                                className: 'space-y-6'
+                            }, [
+                                React.createElement('h4', {
+                                    key: 'services-title',
+                                    className: 'text-primary font-bold uppercase tracking-widest text-xs'
+                                }, t.footer.mainServices),
+                                React.createElement('ul', {
+                                    key: 'services-list',
+                                    className: 'space-y-4 text-sm text-white/60'
+                                }, [
+                                    React.createElement('li', { key: 'service1' }, language === 'ar' ? 'الدفاع الجنائي' : 'Criminal Law'),
+                                    React.createElement('li', { key: 'service2' }, language === 'ar' ? 'الاستشارات التجارية' : 'Commercial Law'),
+                                    React.createElement('li', { key: 'service3' }, language === 'ar' ? 'قضايا التعويضات' : 'Civil Cases'),
+                                    React.createElement('li', { key: 'service4' }, language === 'ar' ? 'نزاعات العقارات' : 'Real Estate')
+                                ])
+                            ]),
+                            
+                            React.createElement('div', {
+                                key: 'footer-hours',
+                                className: 'space-y-6'
+                            }, [
+                                React.createElement('h4', {
+                                    key: 'hours-title',
+                                    className: 'text-primary font-bold uppercase tracking-widest text-xs'
+                                }, t.footer.businessHours),
+                                React.createElement('div', {
+                                    key: 'hours-list',
+                                    className: 'text-sm text-white/60 space-y-2'
+                                }, [
+                                    React.createElement('p', { key: 'weekdays' }, t.footer.hours.weekdays),
+                                    React.createElement('p', { key: 'saturday' }, t.footer.hours.saturday)
+                                ])
+                            ])
+                        ]),
+                        
+                        React.createElement('div', {
+                            key: 'footer-bottom',
+                            className: 'mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6'
+                        }, [
+                            React.createElement('p', {
+                                key: 'copyright',
+                                className: 'text-[10px] text-white/30 uppercase tracking-widest'
+                            }, t.footer.copyright),
+                            React.createElement('div', {
+                                key: 'footer-legal',
+                                className: 'flex gap-8'
+                            }, [
+                                React.createElement('a', {
+                                    key: 'privacy',
+                                    href: '#',
+                                    className: 'text-[10px] text-white/30 hover:text-primary transition-colors uppercase tracking-widest'
+                                }, 'Privacy Policy'),
+                                React.createElement('a', {
+                                    key: 'terms',
+                                    href: '#',
+                                    className: 'text-[10px] text-white/30 hover:text-primary transition-colors uppercase tracking-widest'
+                                }, 'Terms of Service')
+                            ])
+                        ])
+                    ])
+                ])
+            ]);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            ReactDOM.render(React.createElement(App), document.getElementById('app'));
+        });
+    </script>
+</body>
+</html>
