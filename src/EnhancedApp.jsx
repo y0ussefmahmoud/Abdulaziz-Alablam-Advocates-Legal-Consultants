@@ -8,7 +8,7 @@ import EnhancedProfile from './components/EnhancedProfile';
 import EnhancedContact from './components/EnhancedContact';
 import EnhancedFooter from './components/EnhancedFooter';
 
-function App() {
+function EnhancedApp() {
   return (
     <LanguageProvider>
       <div className="min-h-screen bg-gray-50">
@@ -26,4 +26,4 @@ function App() {
   );
 }
 
-export default App;
+export default EnhancedApp;
