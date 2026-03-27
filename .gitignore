@@ -27,8 +27,9 @@ dist-ssr
 index-advanced*.html
 index-complete*.html
 index-final*.html
-index-full*.html
+index-standalone.html
 simple-server.html
 test-server.js
 start-dev.bat
 build-and-deploy.bat
+build.bat
