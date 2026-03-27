@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Development files (not for production)
+index-*.html
+simple-server.html
+test-server.js
+start-dev.bat
+build-and-deploy.bat
