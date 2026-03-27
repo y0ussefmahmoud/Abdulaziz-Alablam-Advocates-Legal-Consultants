@@ -7,15 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        'dark-primary': '#111827',
-        'dark-secondary': '#1f2937',
-        'dark-accent': '#374151',
-        'gold': '#eab308',
-        'gold-dark': '#ca8a04',
+        "primary": "#FBD070",
+        "background": "#2F3E46",
+        "surface": "#37474F",
+        "on-surface": "#FFFFFF",
+        "on-primary": "#2F3E46",
       },
       fontFamily: {
-        'arabic': ['Cairo', 'sans-serif'],
-        'english': ['Inter', 'sans-serif'],
+        "headline": ["Noto Serif", "serif"],
+        "body": ["Manrope", "sans-serif"],
+      },
+      borderRadius: {
+        "DEFAULT": "0px",
+        "lg": "4px",
+        "xl": "8px",
+        "full": "9999px",
       },
     },
   },
