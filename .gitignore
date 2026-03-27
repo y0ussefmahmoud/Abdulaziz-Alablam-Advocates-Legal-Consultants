@@ -24,7 +24,10 @@ dist-ssr
 *.sw?
 
 # Development files (not for production)
-index-*.html
+index-advanced*.html
+index-complete*.html
+index-final*.html
+index-full*.html
 simple-server.html
 test-server.js
 start-dev.bat

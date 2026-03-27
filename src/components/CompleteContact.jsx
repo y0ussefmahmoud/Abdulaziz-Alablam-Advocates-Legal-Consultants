@@ -97,30 +97,40 @@ const CompleteContact = () => {
               {/* Name and Phone */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                  <label 
+                    htmlFor="contact-name"
+                    className="text-[10px] font-bold text-white/40 uppercase tracking-widest"
+                  >
                     {t('contact.form.name')}
                   </label>
                   <input 
+                    id="contact-name"
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white focus:border-primary focus:ring-0 transition-all outline-none" 
                     placeholder={t('contact.form.placeholders.name')}
+                    autoComplete="name"
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                  <label 
+                    htmlFor="contact-phone"
+                    className="text-[10px] font-bold text-white/40 uppercase tracking-widest"
+                  >
                     {t('contact.form.phone')}
                   </label>
                   <input 
+                    id="contact-phone"
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white focus:border-primary focus:ring-0 transition-all outline-none" 
                     placeholder={t('contact.form.placeholders.phone')}
+                    autoComplete="tel"
                     required
                   />
                 </div>
@@ -128,14 +138,19 @@ const CompleteContact = () => {
 
               {/* Service Type */}
               <div className="space-y-2">
-                <label className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                <label 
+                  htmlFor="contact-service"
+                  className="text-[10px] font-bold text-white/40 uppercase tracking-widest"
+                >
                   {t('contact.form.service')}
                 </label>
                 <select 
+                  id="contact-service"
                   name="service"
                   value={formData.service}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white/60 focus:border-primary focus:ring-0 transition-all outline-none"
+                  autoComplete="off"
                 >
                   {t('contact.form.options').map((option, index) => (
                     <option key={index} value={option}>
@@ -147,16 +162,21 @@ const CompleteContact = () => {
 
               {/* Message */}
               <div className="space-y-2">
-                <label className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                <label 
+                  htmlFor="contact-message"
+                  className="text-[10px] font-bold text-white/40 uppercase tracking-widest"
+                >
                   {t('contact.form.message')}
                 </label>
                 <textarea 
+                  id="contact-message"
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
                   rows="4"
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white focus:border-primary focus:ring-0 transition-all outline-none" 
                   placeholder={t('contact.form.placeholders.message')}
+                  autoComplete="off"
                   required
                 />
               </div>
