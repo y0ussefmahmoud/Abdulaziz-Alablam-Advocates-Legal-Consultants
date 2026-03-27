@@ -53,7 +53,19 @@ function SimpleApp() {
       <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl shadow-sm">
         <div className="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
           <div className="text-xl font-bold text-gray-900" style={{ fontFamily: 'serif' }}>
-            {currentLang.title}
+            <div className="flex items-center gap-3">
+              <img 
+                src="/logo.png" 
+                alt="Alablam Logo" 
+                className="h-10 w-auto object-contain"
+                style={{ maxHeight: '40px' }}
+                onError={(e) => {
+                  console.log('Logo failed to load, using fallback');
+                  e.target.src = 'https://i.ibb.co/7bQ2GqM/logo-01.png';
+                }}
+              />
+              {currentLang.title}
+            </div>
           </div>
           
           {/* Desktop Navigation */}
@@ -268,7 +280,17 @@ function SimpleApp() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="text-lg font-bold mb-4" style={{ fontFamily: 'serif' }}>
+          <div className="flex items-center justify-center gap-3 text-lg font-bold mb-4" style={{ fontFamily: 'serif' }}>
+            <img 
+              src="/logo.png" 
+              alt="Alablam Logo" 
+              className="h-12 w-auto object-contain"
+              style={{ maxHeight: '48px' }}
+              onError={(e) => {
+                console.log('Footer logo failed to load, using fallback');
+                e.target.src = 'https://i.ibb.co/7bQ2GqM/logo-01.png';
+              }}
+            />
             {currentLang.title}
           </div>
           <p className="text-gray-400 mb-4">
