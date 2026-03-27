@@ -1,0 +1,127 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "expertise": "Expertise Areas",
+    "profile": "Office Profile",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Abdulaziz Alablam - Lawyers & Legal Consultants",
+    "subtitle": "We believe that law is not merely a set of texts; it is the fortress of justice and the shield of rights.",
+    "cta": "Explore Our Services"
+  },
+  "criminalServices": {
+    "title": "Our Criminal Law Services",
+    "subtitle": "Work Methodology and Commitment to the Client",
+    "services": [
+      "Representation and defense during investigation and prosecution stages.",
+      "Appeals and challenging judgments.",
+      "Cases involving drugs, murder, fraud, and violent crimes.",
+      "And all other types of crimes."
+    ],
+    "methodology": {
+      "title": "Work Methodology and Commitment to the Client",
+      "items": [
+        {
+          "title": "Comprehensive Analysis",
+          "description": "In-depth study of all case details from a legal and strategic perspective."
+        },
+        {
+          "title": "Transparent Communication",
+          "description": "Keeping the client continuously informed of all case developments and available options."
+        },
+        {
+          "title": "Targeted Solutions",
+          "description": "Designing legal strategies precisely tailored to the needs and goals of each client."
+        },
+        {
+          "title": "Dedicated Team",
+          "description": "A team of highly competent and experienced lawyers and consultants."
+        }
+      ]
+    },
+    "commitment": {
+      "title": "Our Criminal Commitment",
+      "description": "We stand by you from the first moment of the investigation until the final verdict. Our team comprises an elite group of lawyers specializing in cases of major criminal offenses, white-collar crimes, and Cybercrimes. We dedicate all our legal expertise to preparing strong, well-thought-out defense strategies to protect your rights and ensure a fair trial."
+    }
+  },
+  "officeProfile": {
+    "title": "Office Profile",
+    "identity": {
+      "title": "Identity and Vision",
+      "description": "We, Abdulaziz Alablam Law Firm & Legal Consultants, believe that law is not merely a set of texts; it is the fortress of justice and the shield of rights. Our firm was established on the principles of integrity, competence, and absolute commitment to representing our clients' interests and providing innovative, effective legal solutions in the face of the most complex challenges."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To provide integrated, high-quality legal services across all branches of law, with an unwavering commitment to achieving the best possible results for our clients with utmost professionalism and transparency."
+    },
+    "values": {
+      "title": "Our Values",
+      "items": [
+        {
+          "title": "Justice",
+          "description": "Striving to achieve justice for all our clients."
+        },
+        {
+          "title": "Professionalism",
+          "description": "Adhering to the highest standards of professional and ethical conduct."
+        },
+        {
+          "title": "Confidentiality",
+          "description": "Maintaining the secrecy and privacy of all information related to our clients and their cases."
+        }
+      ]
+    }
+  },
+  "expertise": {
+    "title": "Comprehensive Areas of Expertise",
+    "subtitle": "With over 23 years of experience, we provide exceptional legal services across various practice areas.",
+    "areas": [
+      {
+        "title": "Commercial Law",
+        "description": "Expert legal guidance for business transactions, corporate governance, and commercial disputes."
+      },
+      {
+        "title": "Civil Law",
+        "description": "Comprehensive representation in civil matters including contracts, torts, and property disputes."
+      },
+      {
+        "title": "Family Law",
+        "description": "Sensitive and professional handling of personal status matters including marriage, divorce, and custody."
+      },
+      {
+        "title": "Real Estate Law",
+        "description": "Specialized legal services for property transactions, leasing, and real estate development."
+      },
+      {
+        "title": "Legal Consultations",
+        "description": "Expert legal advice and consultation services for individuals and businesses."
+      }
+    ],
+    "legacy": {
+      "title": "The Founder's Legacy",
+      "description": "Established with a vision to provide unparalleled legal services, our firm has grown to become a trusted name in the legal community. We combine traditional values with modern legal practices to deliver exceptional results for our clients."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our legal team for expert consultation",
+    "info": {
+      "address": "Deira, Port Saeed, Al Owais Building, Office 506",
+      "phone": "+971 4 284 5200",
+      "email": "info@alablam.org"
+    },
+    "form": {
+      "title": "Request a Consultation",
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "message": "Message",
+      "submit": "Send Message"
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 Abdulaziz Alablam Advocates & Legal Consultants. All rights reserved."
+  }
+}
