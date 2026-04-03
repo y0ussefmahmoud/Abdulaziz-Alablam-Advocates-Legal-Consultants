@@ -3,7 +3,27 @@
 
 A modern, responsive legal website built with React.js, Vite, and Tailwind CSS. Features bilingual support (Arabic/English) with RTL/LTR switching and professional legal services presentation.
 
-## 🚀 Features
+**Version: 1.3.2** - Latest update with logo fixes and improvements.
+
+## � Project Overview
+
+This is a professional legal website for Abdulaziz Al-Ablam Advocates & Legal Consultants, specializing in criminal law defense. The website showcases the firm's expertise, services, and professional background with a focus on criminal law cases.
+
+### Key Sections:
+- **Hero Section**: Prominent display of firm expertise with over 20 years of experience
+- **Services**: Specialized criminal law services including investigation, appeals, and various crime types
+- **Methodology**: Client-centered approach with comprehensive analysis and transparent communication
+- **Expertise**: Detailed coverage of criminal law areas
+- **About**: Professional background of Abdulaziz Al-Ablam
+- **Contact**: Professional contact information and office location
+
+### Recent Updates (v1.3.2):
+- ✅ Fixed logo display issue by switching to local asset
+- ✅ Improved image loading performance
+- ✅ Enhanced responsive design for mobile devices
+- ✅ Updated bilingual content accuracy
+
+## �🚀 Features
 
 - ✅ **Bilingual Support** - Arabic & English with RTL/LTR switching
 - ✅ **Responsive Design** - Works perfectly on all devices
