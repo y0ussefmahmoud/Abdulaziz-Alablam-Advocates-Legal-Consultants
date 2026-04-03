@@ -33,3 +33,6 @@ test-server.js
 start-dev.bat
 build-and-deploy.bat
 build.bat
+
+# Unused development files
+dist/
