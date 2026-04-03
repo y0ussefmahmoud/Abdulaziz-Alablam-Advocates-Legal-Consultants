@@ -3,7 +3,7 @@
 
 A modern, responsive legal website built with React.js, Vite, and Tailwind CSS. Features bilingual support (Arabic/English) with RTL/LTR switching and professional legal services presentation.
 
-**Version: 1.3.6** - Clean production-ready project with optimized asset management.
+**Version: 1.4.7** - Fixed GitHub Pages deployment with direct file copying for proper logo display.
 
 ## � Project Overview
 
@@ -17,12 +17,13 @@ This is a professional legal website for Abdulaziz Al-Ablam Advocates & Legal Co
 - **About**: Professional background of Abdulaziz Al-Ablam
 - **Contact**: Professional contact information and office location
 
-### Recent Updates (v1.3.5):
+### Recent Updates (v1.4.7):
+- ✅ Fixed GitHub Pages deployment workflow
+- ✅ Replaced Vite build with direct file copying
+- ✅ Ensured proper logo and favicon display on hosting
 - ✅ Optimized dual configuration for local and production
 - ✅ index-full.html uses relative paths for local development
 - ✅ index.html uses absolute paths for GitHub Pages
-- ✅ Fixed GitHub Pages asset paths for proper deployment
-- ✅ Updated all logo and favicon paths with correct base path
 
 ## 📁 File Usage
 
